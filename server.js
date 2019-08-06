@@ -8,6 +8,7 @@ const Data = require("./data");
 const API_PORT = process.env.PORT || 3000;
 const app = express();
 const router = express.Router(); 
+const cors = require('cors')
 
 // this is our MongoDB database
 const dbRoute = "mongodb://admin:react123@ds259367.mlab.com:59367/pulse";
@@ -53,7 +54,7 @@ router.post("/putData", (req, res) => {
     });
 });
 
-router.get("/getData", (req, res) => {
+router.get("/getData", cors(), (req, res) => {
     Data.find((err, data) => {
         if (err) return res.json({ success: false, error: err });
         return res.json({ success: true, data: data });
