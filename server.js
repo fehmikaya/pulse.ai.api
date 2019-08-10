@@ -61,7 +61,7 @@ router.get("/getData", cors(), (req, res) => {
     });
 });
 
-// append /api for our http requests
+// append /api for our http requests 
 app.use("/api", router);
 
 // launch our backend into a port
